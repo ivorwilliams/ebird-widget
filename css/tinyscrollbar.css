@@ -1,0 +1,98 @@
+/* Tiny Scrollbar */
+#scrollbar1 { margin: 20px 0 10px; }
+#scrollbar1 .viewport { height: 200px; overflow: hidden; position: relative; }
+#scrollbar1 .overview { width:100%; list-style: none; position: absolute; left: 0; top: 0; padding: 0; margin: 0; }
+#scrollbar1 .scrollbar{ background: transparent; position: relative; background-position: 0 0; float: right; width: 15px; }
+#scrollbar1 .track { background: #eee; height: 100%; width:8px; position: relative; padding: 0 1px; border-radius: 3px;}
+#scrollbar1 .thumb { background: #bbb; height: 20px; width: 8px; cursor: pointer; overflow: hidden; position: absolute; top: 0; left: 1px; border-radius: 5px; }
+#scrollbar1 .thumb .end { background: #bbb; overflow: hidden; height: 5px; width: 25px; }
+#scrollbar1 .disable { display: none; }
+.noSelect { user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; }
+
+/* Custom styles */
+.sanisoft_credits {
+    float: right;
+    font-size: x-small;
+    margin-right: 5px;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.sanisoft_credits a {
+    text-decoration: none;
+}
+
+.ebird_credits {
+    float: left;
+    font-size: x-small;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.ebird_widget_p {
+    padding-left: 5px;
+    margin-bottom: -10px
+}
+
+#scrollbar1 .viewport a {
+        text-decoration: none;
+        display: block;
+        padding: 0px 5px;
+}
+
+#scrollbar1 .viewport a:hover {
+    background: #f8f8f8;
+}
+
+#scrollbar1 .badge {
+    float: right;
+}
+
+
+.chklst_count {
+    float: right;
+    padding: 10px 0px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.chklst_location {
+    margin: 0px;
+    line-height: 1;
+}
+
+.chklst_observer {
+    margin: 0px;
+    line-height: 1;
+    padding-top: 3px;
+    font-style: italic;
+    font-size: 0.9em
+}
+
+.chklst_li {
+    padding: 5px 0px;
+}
+
+
+.chklst_li a{
+    text-decoration: none;
+}
+
+.bird-name {
+    display: inline-block;
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Easy Tabs */
+.etabs { margin: 0; padding: 0; }
+.tab { display: inline-block; zoom:1; *display:inline; background: #eee; border: solid 1px #ddd; border-bottom: none; -moz-border-radius: 3px 3px 0 0; -webkit-border-radius: 3px 3px 0 0; }
+.tab a { font-size: 10px; line-height: 2em; display: block; padding: 0 10px; outline: none; text-decoration: none; }
+.tab a:hover { text-decoration: underline; }
+.tab.active { background: #fff; padding-top: 2px; position: relative; top: 1px; border-color: #bbb; }
+.tab a.active { font-weight: bold; }
+.tab-container .panel-container { background: #fff; border: solid #666 1px; padding: 10px; -moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; }
+.panel-container { margin-bottom: 10px; }
+
