@@ -38,7 +38,7 @@ class ebird_widget_plugin extends WP_Widget {
         </p>
 
         <p>
-        <label for="<?php echo $this->get_field_id('region_name'); ?>"><?php _e('Region Name:', 'ebird_widget_plugin'); ?></label>
+        <label for="<?php echo $this->get_field_id('region_name'); ?>"><?php _e('Title:', 'ebird_widget_plugin'); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id('region_name'); ?>" name="<?php echo $this->get_field_name('region_name'); ?>" type="text" value="<?php echo $region_name; ?>" />
         </p>
 
@@ -65,7 +65,7 @@ class ebird_widget_plugin extends WP_Widget {
     function widget($args, $instance) {
        extract( $args );
        // these are the widget options
-       $title = __('Recent bird observations in ').$instance['region_name'];
+       $title = $instance['region_name'];
        $title = apply_filters('widget_title', $title);
        $checklists = array();
        echo $before_widget;
@@ -152,7 +152,7 @@ class ebird_widget_plugin extends WP_Widget {
                 </pre>
                 </div>
                     <!-- Be nice and do not remove the credits -->
-                    <div class="ebird_credits"></div><div class="sanisoft_credits"><a href="//ebird.org">eBird</a> widget created by <a href="//sanisoft.com">SANIsoft</a></div>
+                    <div class="sanisoft_credits"><a href="//ebird.org">eBird</a> widget created by <a href="//sanisoft.com">SANIsoft</a></div>
             </div>
             <?php
             } else {
@@ -203,7 +203,7 @@ function get_data(){
     $data->recentObservations = $recentObservations;
 
     if (!$eb->error) {
-        set_transient('ebird_data', $data, 60*60);
+        set_transient('ebird_data', $data, 12*60*60);
         //return true;
     }else{
         echo $eb->errorMsg;
@@ -227,7 +227,7 @@ function get_data(){
     $data->fullObservations = $fullObservations;
 
     if (!$eb->error) {
-        set_transient('ebird_data', $data, 60*60);
+        set_transient('ebird_data', $data, 12*60*60);
         return true;
     }else{
         echo $eb->errorMsg;
