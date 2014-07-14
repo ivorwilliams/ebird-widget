@@ -152,7 +152,7 @@ class ebird_widget_plugin extends WP_Widget {
                 </pre>
                 </div>
                     <!-- Be nice and do not remove the credits -->
-                    <div class="ebird_credits"><a href="//ebird.org">eBird</div> <div class="sanisoft_credits"><a href="//sanisoft.com">SANIsoft</a></div>
+                    <div class="ebird_credits"></div><div class="sanisoft_credits"><a href="//ebird.org">eBird</a> widget created by <a href="//sanisoft.com">SANIsoft</a></div>
             </div>
             <?php
             } else {
