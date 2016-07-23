@@ -22,24 +22,24 @@ class ebird_widget_plugin extends WP_Widget {
     function form($instance) {
         // Check values
         if( $instance) {
-             $region_code = esc_attr($instance['region_code']);
-             $region_name = esc_attr($instance['region_name']);
-             $days_back   = esc_textarea($instance['days_back']);
+             $location_id   = esc_attr($instance['region_code']);
+             $location_name = esc_attr($instance['location_name']);
+             $days_back     = esc_textarea($instance['days_back']);
         } else {
-             $region_code = 'IN';
-             $region_name = 'India';
-             $days_back   = '1';
+             $location_id   = 'L11';
+             $location_name = 'Toronto--High Park';
+             $days_back     = '7';
         }
         ?>
 
         <p>
         <label for="<?php echo $this->get_field_id('region_code'); ?>"><?php _e('Region Code:', 'ebird_widget_plugin'); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id('region_code'); ?>" name="<?php echo $this->get_field_name('region_code'); ?>" type="text" value="<?php echo $region_code; ?>" />
+        <input class="widefat" id="<?php echo $this->get_field_id('region_code'); ?>" name="<?php echo $this->get_field_name('region_code'); ?>" type="text" value="<?php echo $location_id; ?>" />
         </p>
 
         <p>
-        <label for="<?php echo $this->get_field_id('region_name'); ?>"><?php _e('Title:', 'ebird_widget_plugin'); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id('region_name'); ?>" name="<?php echo $this->get_field_name('region_name'); ?>" type="text" value="<?php echo $region_name; ?>" />
+        <label for="<?php echo $this->get_field_id('location_name'); ?>"><?php _e('Title:', 'ebird_widget_plugin'); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id('location_name'); ?>" name="<?php echo $this->get_field_name('location_name'); ?>" type="text" value="<?php echo $location_name; ?>" />
         </p>
 
         <p>
@@ -55,7 +55,7 @@ class ebird_widget_plugin extends WP_Widget {
           $instance = $old_instance;
           // Fields
           $instance['region_code'] = strip_tags($new_instance['region_code']);
-          $instance['region_name'] = strip_tags($new_instance['region_name']);
+          $instance['location_name'] = strip_tags($new_instance['location_name']);
           $instance['days_back']   = strip_tags($new_instance['days_back']);
           delete_transient( 'ebird_data' );
          return $instance;
@@ -65,7 +65,7 @@ class ebird_widget_plugin extends WP_Widget {
     function widget($args, $instance) {
        extract( $args );
        // these are the widget options
-       $title = $instance['region_name'];
+       $title = $instance['location_name'];
        $title = apply_filters('widget_title', $title);
        $checklists = array();
        echo $before_widget;
@@ -198,7 +198,7 @@ function get_data(){
 
     $data->fullObservations = $fullObservations = array();
 
-    $recentObservations = json_decode($eb->recentObservationsInARegion($settings['region_code'], $options));
+    $recentObservations = json_decode($eb->recentObservationsAtLocations($settings['region_code'], $options));
 
     $data->recentObservations = $recentObservations;
 
