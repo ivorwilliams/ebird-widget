@@ -22,7 +22,7 @@ class ebird_widget_plugin extends WP_Widget {
     function form($instance) {
         // Check values
         if( $instance) {
-             $location_id   = esc_attr($instance['region_code']);
+             $location_id   = esc_attr($instance['location_id']);
              $location_name = esc_attr($instance['location_name']);
              $days_back     = esc_textarea($instance['days_back']);
         } else {
@@ -33,8 +33,8 @@ class ebird_widget_plugin extends WP_Widget {
         ?>
 
         <p>
-        <label for="<?php echo $this->get_field_id('region_code'); ?>"><?php _e('Region Code:', 'ebird_widget_plugin'); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id('region_code'); ?>" name="<?php echo $this->get_field_name('region_code'); ?>" type="text" value="<?php echo $location_id; ?>" />
+        <label for="<?php echo $this->get_field_id('location_id'); ?>"><?php _e('Location ID:', 'ebird_widget_plugin'); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id('location_id'); ?>" name="<?php echo $this->get_field_name('location_id'); ?>" type="text" value="<?php echo $location_id; ?>" />
         </p>
 
         <p>
@@ -54,7 +54,7 @@ class ebird_widget_plugin extends WP_Widget {
     function update($new_instance, $old_instance) {
           $instance = $old_instance;
           // Fields
-          $instance['region_code'] = strip_tags($new_instance['region_code']);
+          $instance['location_id'] = strip_tags($new_instance['location_id']);
           $instance['location_name'] = strip_tags($new_instance['location_name']);
           $instance['days_back']   = strip_tags($new_instance['days_back']);
           delete_transient( 'ebird_data' );
@@ -198,7 +198,7 @@ function get_data(){
 
     $data->fullObservations = $fullObservations = array();
 
-    $recentObservations = json_decode($eb->recentObservationsAtLocations($settings['region_code'], $options));
+    $recentObservations = json_decode($eb->recentObservationsAtLocations($settings['location_id'], $options));
 
     $data->recentObservations = $recentObservations;
 
