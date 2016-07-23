@@ -2,7 +2,7 @@
 /*
 Plugin Name: eBird widget Plugin
 Plugin URI: http://www.sanisoft.com/ebird
-Description: A simple plugin that adds a widget to show eBird data for a selected region
+Description: A simple plugin that adds a widget to show eBird data for a selected location
 Version: 1.0
 Author: Dr. Tarique Sani <tarique@sanisoft.com>
 Author URI: http://www.sanisoft.com/blog/author/tariquesani/
