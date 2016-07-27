@@ -203,7 +203,7 @@ function get_data(){
     $data->recentObservations = $recentObservations;
 
     if (!$eb->error) {
-        set_transient('ebird_data', $data, 1*60*60);
+        set_transient('ebird_data', $data, 12*60*60);
         //return true;
     }else{
         echo $eb->errorMsg;
@@ -227,7 +227,7 @@ function get_data(){
     $data->fullObservations = $fullObservations;
 
     if (!$eb->error) {
-        set_transient('ebird_data', $data, 1*60*60);
+        set_transient('ebird_data', $data, 12*60*60);
         return true;
     }else{
         echo $eb->errorMsg;
